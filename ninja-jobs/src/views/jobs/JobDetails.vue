@@ -1,7 +1,12 @@
 <template>
-  <h1>{{ job.title }}</h1>
-  <p>The job id is {{ id }}</p>
-  <p>{{ job.details }}</p>
+  <div v-if="job">
+    <h1>{{ job.title }}</h1>
+    <p>The job id is {{ id }}</p>
+    <p>{{ job.details }}</p>
+  </div>
+  <div v-else>
+    <p>Loading job details...</p>
+  </div>
 </template>
 
 <script>
@@ -15,13 +20,13 @@ export default {
     //     }
     // }
 
-  // This is happening second - causing an error
+  // This is happening first - hence why conditional data display is required
   data() {
     return {
       job: null,
     }
   },
-  // This is happening first
+  // This is happening second
   mounted() {
     fetch(`http://localhost:3000/jobs/${this.id}`)
       .then(res => res.json()) // array of objects
