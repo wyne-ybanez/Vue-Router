@@ -17,6 +17,17 @@ npm run serve
 npm run build
 ```
 
+### JSON Server Bits - watch a file, which in this case is inside data folder
+```
+json-server --watch data/db.json
+```
+
+or
+
+```
+npm run json-watch
+```
+
 ### Learning Outcomes
 
 Vue router injects the appropriate component into the file rather than requesting the server for a new file.
