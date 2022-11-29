@@ -12,12 +12,14 @@
 export default {
   data() {
     return {
-      jobs: [
-        { title: 'Ninja UX Designer', id: 1, details: 'lorem' },
-        { title: 'Ninja Web Developer', id: 2, details: 'lorem' },
-        { title: 'Ninja Vue Developer', id: 3, details: 'lorem' },
-      ],
+      jobs: [], // populating array with the fetch request
     }
+  },
+  mounted() {
+    fetch('http://localhost:3000/jobs')
+      .then(res => res.json()) // array of objects
+      .then(data => this.jobs = data) // attach array of objects to data variable
+      .catch(err => console.log(err.message))
   }
 }
 </script>
