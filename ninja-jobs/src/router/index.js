@@ -1,16 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
+import Jobs from '../views/jobs/Jobs.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: Home
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
     component: About
     /**
      * route level code-splitting
@@ -18,6 +19,11 @@ const routes = [
      * which is lazy-loaded when the route is visited.
      * component: () => import(/* webpackChunkName: "about"... '../views/About.vue')
     */
+  },
+  {
+    path: '/jobs/jobs',
+    name: 'Jobs',
+    component: Jobs
   }
 ]
 
