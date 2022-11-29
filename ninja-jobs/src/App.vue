@@ -6,11 +6,33 @@
     <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
   </nav>
 
-  <!-- This is where the view will be rendered -->
+  <!-- Direction buttons (Browser History) -->
+  <button @click="redirect">Redirect</button>
+  <button @click="back">Go back</button>
+  <button @click="forward">Go forward</button>
+
+  <!-- This is where the views will be rendered -->
   <router-view/>
 
   <!-- Optional: footer -->
 </template>
+
+<script>
+  export default {
+    methods: {
+      // Based on page histories, parameter is steps to take
+      redirect(){
+        this.$router.push({ name: 'Home' })
+      },
+      back(){
+        this.$router.go(-1)
+      },
+      forward(){
+        this.$router.go(1)
+      }
+    }
+  }
+</script>
 
 <style>
   #app {
@@ -36,5 +58,17 @@
   nav a.router-link-exact-active {
     color: #fff;
     background: turquoise;
+  }
+
+  button {
+    margin: 0 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+  }
+
+  button a {
+    color: #fff;
+    text-decoration: none;
   }
 </style>
