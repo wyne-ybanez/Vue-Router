@@ -27,9 +27,13 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #fff;
+  background: turquoise;
 }
 </style>
